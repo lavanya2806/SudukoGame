@@ -1,16 +1,9 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 class Main 
 {
 	public static boolean isSafe(int[][] board,int row, int col,int num)
 	{
-		// Row has the unique 
+ 
 		for (int d = 0; d < board.length; d++) 
 		{
 			
@@ -20,7 +13,6 @@ class Main
 			}
 		}
 
-		// Column has the unique numbers 
 		for (int r = 0; r < board.length; r++) 
 		{
 			// Check if the number is already present in that column, return false;
@@ -30,7 +22,7 @@ class Main
 			}
 		}
 
-		// Corresponding square has unique number
+		// Check that square has unique number
 		int sqrt = (int)Math.sqrt(board.length);
 		int boxRowStart = row - row % sqrt;
 		int boxColStart = col - col % sqrt;
@@ -45,8 +37,6 @@ class Main
 				}
 			}
 		}
-
-		// if there is no clash, it's safe
 		return true;
 	}
 
@@ -63,7 +53,7 @@ class Main
 				{
 					row = i;
 					col = j;
-         // We still have some remaining missing values in Sudoku
+         // some values still left
 					isEmpty = false;
 					break;
 				}
@@ -79,7 +69,7 @@ class Main
 			return true;
 		}
 
-		// Else for each-row backtrack
+		// Else for each row backtrack
 		for (int num = 1; num <= n; num++) 
 		{
 			if (isSafe(board, row, col, num)) 
@@ -92,7 +82,6 @@ class Main
 				}
 				else
 				{
-					// replace it
 					board[row][col] = 0;
 				}
 			}
@@ -145,7 +134,6 @@ class Main
 
 		if (solveSudoku(board, N)) 
 		{
-			// print solution
 			print(board, N);
 		}
 		else {
